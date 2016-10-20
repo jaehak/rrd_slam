@@ -1,0 +1,13 @@
+<stack>
+  <description brief="rrd_slam">
+
+	RRD-SLAM: Radial-distorted Rolling-shutter Direct SLAM
+
+  </description>
+  <author>Maintained by Jae-Hak Kim</author>
+  <license>see http://cs.adelaide.edu.au/~jaehak/rrd_slam </license>
+  <review status="unreviewed" notes="under active development"/>
+  <url>http://cs.adelaide.edu.au/~jaehak/rrd_slam</url>
+  <depend stack="ros" />
+
+</stack>

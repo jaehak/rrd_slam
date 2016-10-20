@@ -1,0 +1,22 @@
+**RRD-SLAM**
+
+This repository contains a Direct SLAM for Rolling-Shutter Cameras.
+There are two programs in this repository which are
+
+* RRD-SLAM: Radial-distorted Rolling-shutter Direct SLAM
+* RSD-SLAM: Rolling-Shutter Direct SLAM (ICRA 2016)
+
+RRD-SLAM is an extension of RSD-SLAM with radial distortion support.
+To run "RSD-SLAM" use an option _methodRollingShutter:=0,
+and to run "RRD-SLAM" use an option _methodRollingShutter:=1.
+
+For installation, please refer to LSD-SLAM document and
+rrd_slam_core/INSTALL_MacOSX.txt or rrd_slam_core/INSTALL_Ubuntu.txt files.
+
+Please cite a paper:
+
+Jae-Hak Kim, Cesar Cadena and Ian Reid
+"Direct Semi-dense SLAM for Rolling Shutter Cameras"
+IEEE International Conference on Robotics and Automation, ICRA 2016
+
+Copyright (C) 2016 Jae-Hak Kim

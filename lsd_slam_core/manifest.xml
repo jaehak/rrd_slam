@@ -1,0 +1,17 @@
+<package>
+  <description brief="RollingShutterSemiDenseSLAM">
+
+     RRD-SLAM (Radial-distorted Rolling-shutter Direct SLAM)
+
+  </description>
+  <author>Jae-Hak Kim</author>
+  <license>see http://cs.adelaide.edu.au/~jaehak/rrd_slam </license>
+  <review status="unreviewed" notes=""/>
+  <url>http://cs.adelaide.edu.au/~jaehak/rrd_slam</url>
+  <depend package="cv_bridge"/>
+  <depend package="dynamic_reconfigure"/>
+  <depend package="sensor_msgs"/>
+  <depend package="roslib"/>
+  <depend package="rosbag"/>
+  <depend package="lsd_slam_viewer"/>
+</package> 

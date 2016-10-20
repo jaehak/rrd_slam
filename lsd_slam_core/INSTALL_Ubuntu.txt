@@ -1,0 +1,29 @@
+How to build RRD-SLAM with local OpenCV2 when the sytem has OpenCV3
+Jae-Hak Kim
+2016-07-26
+
+RRD-SLAM should use OpenCV 2.4.8
+
+therefore, build your own opencv 2.4.8 and install somewhere such that
+
+/home/jaehak/Devel/share/OpenCV
+
+After running
+
+	$ rosmake
+
+You will get errors but
+
+	$ cd build
+	$ ccmake ..
+
+Then find OpenCV_CONFIG_PATH and OpenCV_DIR and change them
+
+	OpenCV_CONFIG_PATH /home/jaehak/Devel/share/OpenCV
+	OpenCV_DIR /home/jaehak/Devel/share/OpenCV
+
+Then configure 'c' and generate 'g' makefile.
+
+Then, build
+
+	$ make VERBOSE=1 -j 24

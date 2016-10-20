@@ -1,0 +1,59 @@
+NOTE about coding 
+Jae-Hak Kim, 2015-04-19
+
+This is a description, concept and coding style used throught this code. Some of them 
+I have discovered while reading the code and found useful to know in advance
+before reading the code or get reminded.
+
+====================================================================================
+1. Pose
+
+A pose of {A} with respect to {B} coordiante system is written as:
+
+AToB
+
+For instance, a pose of the frame with respect to the reference is written as:
+
+frameToReference
+
+It is considered equally as a transformation from a point in A to a point in B.
+
+A multiplication (or concatenation operation) allows us to express a frame or point
+in different coordinate system over other coordinate system. 
+Note that a series of muliplications is given in the left side.
+For instance,
+
+AToC = BToC * AToB
+
+or
+
+frameToWorld = ReferenceToWorld * frameToReference
+
+For a similar concept, refer to Peter Corke's book (Robotics, Vision and Control).
+
+====================================================================================
+2. Sophus library
+
+Sophus has used in this code for Lie algebra operations such as exponential
+and logarithmic map. Sophus class contains both Lie algebra and Lie group,
+therefore it provides a way to initialize the class with a vector or matrix.
+Then, it supports a returning its form back as Lie algebra or Lie group
+elements. Here is an example:
+
+Sophus::SE3d LieX = Sophus::SE3d::exp(Eigen::Matrix<double>(6,1)(1,2,3,0,0,0));
+Eigen::Matrix<double,4,4> X = LieX.matrix();
+Eigen::Matrix<double,6,1> Xi = LieX.log();
+
+Sophus::SE3d LieX_copy = Sophus::SE3d(X);
+
+====================================================================================
+3. Spline library
+
+sp(arrayS, k-degree)
+getPoseOnSpline(u, i)
+u is a float between 0.0 and 1.0
+and 
+i starts from the index 1, which means
+for 11 control points of arrayS, i ranges from 1 to 10.
+
+====================================================================================

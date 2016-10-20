@@ -1,0 +1,50 @@
+How to build on Mac OS X
+Jae-Hak Kim <jaehak.kim@adelaide.edu.au>
+2015-06-22
+================================================================================
+To build on command
+
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+
+================================================================================
+To build on Xcode (tested version 6)
+
+$ mkdir build_Xcode
+$ cd build_Xcode
+$ cmake .. -G Xcode
+$ xcodebuild
+
+* To build on Xcode IDE
+
+In Xcode, open the Xcode project file rrd_slam_core.xcodeproj
+and select the scheme to build. 
+For instance, select
+
+  Xcode->Product->Scheme->dataset_rollingshutter_BN3
+
+then, Product->Build
+
+However, you would get an error message as 
+
+ImportError: No module named roslib
+
+This error is related to ROS environment variables. To solve this issue,
+we need to remove unnecessary target. Please remove "ROSBUILD_gencfg_cpp" 
+target by selecting the project "rrd_slam_core" on the left panel
+and selecting "ROSBUILD_gencfg_cpp" target followed by right-mouse click
+to delete or pressing "-" sign. This removal will also clear the dependencies 
+of ROSBUILD_gencfg_cpp in all other targets.
+
+================================================================================
+Eigen patch for OS X
+
+/usr/local/include/eigen3/Eigen/src/Geometry/Quaternion.h
+
+EIGEN_MAKE_ALIGNED_OPERATOR_NEW_IF(IsAligned)
+
+should be
+
+EIGEN_MAKE_ALIGNED_OPERATOR_NEW_IF(IsAligned==0)
